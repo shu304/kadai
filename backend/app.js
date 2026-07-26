@@ -6,6 +6,9 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
+// ★追加
+app.use(express.static("frontend/dist"));
+
 let messages = [
   { id: 1, username: 'Shu', text: 'Hello React!' },
 ];
