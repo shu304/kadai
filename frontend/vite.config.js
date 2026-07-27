@@ -8,3 +8,6 @@ export default {
     },
   },
 };
+export default {
+  base: './'
+}
