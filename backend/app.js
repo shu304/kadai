@@ -1,12 +1,13 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
+
 const app = express();
 const PORT = 3000;
 
 app.use(cors());
 app.use(express.json());
 
-// ★追加
 app.use(express.static("frontend/dist"));
 
 let messages = [
@@ -25,6 +26,11 @@ app.post('/api/messages', (req, res) => {
   };
   messages.push(newMessage);
   res.json(newMessage);
+});
+
+// ⭐ これ追加
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend/dist/index.html'));
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
