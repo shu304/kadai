@@ -1,4 +1,5 @@
 export default {
+  base: './',   // ← これ追加
   server: {
     proxy: {
       '/api': {
@@ -8,6 +9,3 @@ export default {
     },
   },
 };
-export default {
-  base: './'
-}
