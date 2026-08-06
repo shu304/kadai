@@ -1,4 +1,6 @@
+require('dotenv').config();
 const express = require("express");
+
 const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 
@@ -42,6 +44,8 @@ app.use((req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });
 
-app.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
+const PORT = process.env.PORT || 3026;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
